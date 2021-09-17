@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Reply.belongsToMany(models.Post, {
-        through: models.PostReply,
+        through: "PostReply",
         foreignKey: "ReplyId",
       })
     }
