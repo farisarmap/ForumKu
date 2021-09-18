@@ -9,12 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      PostReply.belongsTo(models.Post, {
-        foreignKey: "PostId",
-      })
-      PostReply.belongsTo(models.Reply, {
-        foreignKey: "ReplyId",
-      })
+      PostReply.belongsTo(models.Post)
+      PostReply.belongsTo(models.Reply)
     }
   }
   PostReply.init(
