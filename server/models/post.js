@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Post.belongsTo(models.User)
+      Post.belongsTo(models.Post)
       Post.belongsToMany(models.Reply, {
         through: "PostReply",
         foreignKey: "PostId",
@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Post.init(
     {
+      UserId: DataTypes.INTEGER,
       content: DataTypes.STRING,
       attachment: DataTypes.STRING,
-      UserId: DataTypes.INTEGER,
     },
     {
       sequelize,
